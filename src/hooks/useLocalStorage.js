@@ -1,0 +1,14 @@
+import { useState, useEffect } from 'react';
+import initialContacts from "../contacts.json"
+
+export const useLocalStorage = (key, defaultValue) => {
+  const [state, setState] = useState(() => {
+    return JSON.parse(window.localStorage.getItem(key)) ?? defaultValue;
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(state));
+  }, [state]);
+
+  return [state, setState];
+};
