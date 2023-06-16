@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import initialContacts from "../contacts.json"
 
 export const useLocalStorage = (key, defaultValue) => {
   const [state, setState] = useState(() => {
@@ -12,3 +11,4 @@ export const useLocalStorage = (key, defaultValue) => {
 
   return [state, setState];
 };
+
