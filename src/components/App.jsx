@@ -8,10 +8,12 @@ import initialContacts from "../contacts.json";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useLocalStorage } from "hooks/useLocalStorage";
 
+
+const LS_CONTACTS_KEY = 'contacts';
 export const App =() => {
-  const [contacts, setContacts] = useLocalStorage('contacts', initialContacts)
+  const [contacts, setContacts] = useLocalStorage(LS_CONTACTS_KEY, initialContacts);
   const [filter, setFilter] = useState('');
- 
+
 
  const addNewContacts = (newContact) => {  
     const duplicateName = contacts.map(el => el.name.toLowerCase());
